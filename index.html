@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Feliz Aniversario!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #ffffff;
+      color: #0d1b2a;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      color: #00b4d8;
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px #00000020;
+    }
+
+    .foto {
+      width: 200px;
+      border-radius: 15px;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      font-size: 18px;
+      text-align: center;
+      border: 1px solid #00b4d8;
+      border-radius: 5px;
+    }
+
+    .pista {
+      font-size: 14px;
+      color: #6c757d;
+    }
+
+    .teclado {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .tecla {
+      background-color: #0077b6;
+      border: none;
+      color: white;
+      font-size: 20px;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .boton-entrar {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00b4d8;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¡Echo con Amor!</h1>
+  <img src="corazon.jpg" alt="Nuestro amor" class="foto">
+  <p>Ingresa la contraseña</p>
+  <p class="pista">Nuestra fecha</p>
+  <input type="password" id="clave" readonly>
+
+  <div class="teclado">
+    <button class="tecla" onclick="agregar('1')">1</button>
+    <button class="tecla" onclick="agregar('2')">2</button>
+    <button class="tecla" onclick="agregar('3')">3</button>
+    <button class="tecla" onclick="agregar('4')">4</button>
+    <button class="tecla" onclick="agregar('5')">5</button>
+    <button class="tecla" onclick="agregar('6')">6</button>
+    <button class="tecla" onclick="agregar('7')">7</button>
+    <button class="tecla" onclick="agregar('8')">8</button>
+    <button class="tecla" onclick="agregar('9')">9</button>
+    <button class="tecla" onclick="borrar()">←</button>
+    <button class="tecla" onclick="agregar('0')">0</button>
+    <button class="tecla" onclick="limpiar()">C</button>
+  </div>
+
+  <button class="boton-entrar" onclick="verificar()">Entrar</button>
+
+  <script>
+    function agregar(valor) {
+      document.getElementById('clave').value += valor;
+    }
+
+    function borrar() {
+      let clave = document.getElementById('clave').value;
+      document.getElementById('clave').value = clave.slice(0, -1);
+    }
+
+    function limpiar() {
+      document.getElementById('clave').value = '';
+    }
+
+    function verificar() {
+      const claveCorrecta = "121124";
+      const ingresada = document.getElementById('clave').value;
+      if (ingresada === claveCorrecta) {
+        window.location.href = "sorpresa.html";
+      } else {
+        alert("Contraseña incorrecta 💔");
+      }
+    }
+  </script>
+
+</body>
+</html>
